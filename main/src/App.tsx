@@ -2,7 +2,7 @@ import tw from 'twin.macro';
 import { Outlet, NavLink } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
-const Hello = lazy(() => import('postApp/Hello'));
+const Hello = lazy(() => import('postsApp/Hello') as any);
 
 const LINKS = [
 	{ key: 'home', link: '/', label: 'Home' },

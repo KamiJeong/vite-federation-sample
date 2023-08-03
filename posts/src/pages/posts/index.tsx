@@ -1,6 +1,5 @@
 import { Link, Route, Routes } from 'react-router-dom';
 import { Tab } from '@headlessui/react';
-import { useState } from 'react';
 import tw from 'twin.macro';
 import PostId from './[postId]';
 

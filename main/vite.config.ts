@@ -15,16 +15,24 @@ export default defineConfig({
 	},
 	plugins: [
 		react({
-			jsxRuntime: 'classic',
 			babel: {
 				plugins: ['babel-plugin-macros', 'babel-plugin-styled-components'],
 			},
 		}),
 		federation({
 			name: 'main_app',
-			remotes: {
-				postsApp: 'http://localhost:3001/assets/remoteEntry.js',
-			},
+			// remotes: {
+			// 	postsApp: 'http://localhost:3001/assets/remoteEntry.js',
+			// },
+            remotes: [
+                {
+                    postsApp: {
+                        external: `Promise.resolve('http://localhost:3001/assets/remoteEntry.js')`,
+                        from: 'vite',
+                        externalType: 'promise'
+                    }
+                }
+            ],
 			shared: ['react', 'react-dom', 'react-router-dom'],
 		}),
 	],

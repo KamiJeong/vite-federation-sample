@@ -1,1 +1,1 @@
-declare module 'postApp/Hello';
+declare module 'postsApp/*' {}
