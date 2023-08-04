@@ -1,6 +1,7 @@
 import tw from 'twin.macro';
 import { Outlet, NavLink } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 
 const Hello = lazy(() => import('postsApp/Hello') as any);
 
@@ -21,9 +22,11 @@ const App = () => (
 			))}
 		</ul>
 		<div css={[tw`flex min-h-screen items-center justify-center`]}>
-			<Suspense fallback="loading......">
-				<Hello />
-			</Suspense>
+			<ErrorBoundary fallback={<span css={[tw`text-red-600`]}>No Service</span>}>
+				<Suspense fallback="loading......">
+					<Hello name="ho" />
+				</Suspense>
+			</ErrorBoundary>
 			<Outlet />
 		</div>
 	</>

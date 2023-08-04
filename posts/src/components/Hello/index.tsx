@@ -1,6 +1,6 @@
 type Props = {
 	name: string;
 };
-const Hello = ({ name }: Props) => <div>{`Hello ${name}`}</div>;
+const Hello = ({ name }: Props) => <div>{`HOhohohoho Hello ${name}`}</div>;
 
 export default Hello;
